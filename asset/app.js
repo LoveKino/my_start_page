@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 43);
+/******/ 	return __webpack_require__(__webpack_require__.s = 44);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -299,12 +299,12 @@ module.exports = {
 let {
     view
 } = __webpack_require__(6);
-let steadyTheme = __webpack_require__(106);
+let steadyTheme = __webpack_require__(107);
 let {
     deepMergeMap,
     resolveFnValue
 } = __webpack_require__(3);
-let ClassTable = __webpack_require__(107);
+let ClassTable = __webpack_require__(108);
 let {
     Signal
 } = __webpack_require__(5);
@@ -558,7 +558,7 @@ let iterate = __webpack_require__(23);
 
 let {
     map, reduce, find, findIndex, forEach, filter, any, exist, compact
-} = __webpack_require__(50);
+} = __webpack_require__(51);
 
 let contain = (list, item, fopts) => findIndex(list, item, fopts) !== -1;
 
@@ -702,7 +702,7 @@ module.exports = {
 "use strict";
 
 
-module.exports = __webpack_require__(49);
+module.exports = __webpack_require__(50);
 
 /**
  * @readme-doc
@@ -822,7 +822,7 @@ let iterate = __webpack_require__(34);
 
 let {
     map, reduce, find, findIndex, forEach, filter, any, exist, compact, reverse, overArgs
-} = __webpack_require__(88);
+} = __webpack_require__(89);
 
 let contain = (list, item, fopts) => findIndex(list, item, fopts) !== -1;
 
@@ -1119,7 +1119,7 @@ module.exports = {
  * console.log(m('"').type === MATCH);
  *
  **/
-module.exports = __webpack_require__(76);
+module.exports = __webpack_require__(77);
 
 
 /***/ }),
@@ -1255,7 +1255,7 @@ let {
     isObject, isNode
 } = __webpack_require__(0);
 
-let parseArgs = __webpack_require__(51);
+let parseArgs = __webpack_require__(52);
 
 let parseStyle = __webpack_require__(24);
 
@@ -1385,7 +1385,7 @@ module.exports = {
 
 let {
     createElement, createSvgElement
-} = __webpack_require__(62);
+} = __webpack_require__(63);
 
 let {
     bindEvents
@@ -1425,7 +1425,7 @@ module.exports = reduceNode;
 "use strict";
 
 
-let EventMatrix = __webpack_require__(63);
+let EventMatrix = __webpack_require__(64);
 
 let {
     eventMapHook
@@ -1459,7 +1459,7 @@ module.exports = {
 /* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(73);
+module.exports = __webpack_require__(74);
 
 
 /***/ }),
@@ -1628,13 +1628,13 @@ let n = __webpack_require__(2);
 
 let Full = __webpack_require__(11);
 
-const {MODE_PILE, MODE_PERCENTAGE, MODE_PARTION} = __webpack_require__(41);
+const {MODE_PILE, MODE_PERCENTAGE, MODE_PARTION} = __webpack_require__(42);
 
 let {
   getChildStylesInPercentage,
   getChildStylesInPile,
   getChildStylesInPartion
-} = __webpack_require__(42);
+} = __webpack_require__(43);
 
 module.exports = lumineView(({props, children}) => {
   let {theme, style, mode, pers, topPartions, bottomPartions} = props;
@@ -1683,13 +1683,13 @@ let Full = __webpack_require__(11);
 
 let {styles} = __webpack_require__(3);
 
-const {MODE_PERCENTAGE, MODE_PILE, MODE_PARTION} = __webpack_require__(41);
+const {MODE_PERCENTAGE, MODE_PILE, MODE_PARTION} = __webpack_require__(42);
 
 let {
   getChildStylesInPercentage,
   getChildStylesInPile,
   getChildStylesInPartion
-} = __webpack_require__(42);
+} = __webpack_require__(43);
 
 /**
  *
@@ -1741,9 +1741,9 @@ module.exports = lumineView(({props, children}) => {
 "use strict";
 
 
-let shadowFrame = __webpack_require__(47);
+let shadowFrame = __webpack_require__(48);
 
-let startMomenter = __webpack_require__(48);
+let startMomenter = __webpack_require__(49);
 
 let getX = (elem) => {
     var x = 0;
@@ -2002,8 +2002,8 @@ let convertStyleValue = (value, key) => {
 /* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var rng = __webpack_require__(58);
-var bytesToUuid = __webpack_require__(60);
+var rng = __webpack_require__(59);
+var bytesToUuid = __webpack_require__(61);
 
 function v4(options, buf, offset) {
   var i = buf && offset || 0;
@@ -2087,8 +2087,8 @@ let getDoc = (node) => {
 "use strict";
 
 
-exports.decode = exports.parse = __webpack_require__(65);
-exports.encode = exports.stringify = __webpack_require__(66);
+exports.decode = exports.parse = __webpack_require__(66);
+exports.encode = exports.stringify = __webpack_require__(67);
 
 
 /***/ }),
@@ -2134,7 +2134,7 @@ exports.encode = exports.stringify = __webpack_require__(66);
  * console.log('\n');
  * console.log(tokens3);
  */
-module.exports = __webpack_require__(75);
+module.exports = __webpack_require__(76);
 
 
 /***/ }),
@@ -2255,7 +2255,7 @@ let iterate = __webpack_require__(31);
 
 let {
     map, reduce, find, findIndex, forEach, filter, any, exist, compact, reverse, overArgs
-} = __webpack_require__(80);
+} = __webpack_require__(81);
 
 let contain = (list, item, fopts) => findIndex(list, item, fopts) !== -1;
 
@@ -2737,7 +2737,7 @@ let {
     modifySuccess,
     removeNoneExist,
     removeSuccess
-} = __webpack_require__(99);
+} = __webpack_require__(100);
 
 module.exports = (jsonData, {
     missingValue = undefined
@@ -2840,6 +2840,35 @@ module.exports = {
 "use strict";
 
 
+let FullWindow = __webpack_require__(111);
+let lumineView = __webpack_require__(1);
+let n = __webpack_require__(2);
+
+module.exports = lumineView(({
+    props,
+    children
+}) => {
+    return n(FullWindow, props, children);
+}, {
+    defaultProps: {
+        style: (theme) => {
+            return {
+                backgroundColor: theme.basics.veilColor,
+                color: theme.basics.fontColor,
+                zIndex: 1000
+            };
+        }
+    }
+});
+
+
+/***/ }),
+/* 39 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
 let {
     parseStrToAst,
     checkAST
@@ -2868,7 +2897,7 @@ module.exports = {
 
 
 /***/ }),
-/* 39 */
+/* 40 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2926,7 +2955,7 @@ module.exports = lumineView(({
 
 
 /***/ }),
-/* 40 */
+/* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2978,7 +3007,7 @@ module.exports = lumineView(({
 
 
 /***/ }),
-/* 41 */
+/* 42 */
 /***/ (function(module, exports) {
 
 module.exports = {
@@ -2989,7 +3018,7 @@ module.exports = {
 
 
 /***/ }),
-/* 42 */
+/* 43 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3087,15 +3116,15 @@ module.exports = {
 
 
 /***/ }),
-/* 43 */
+/* 44 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-let {SPA} = __webpack_require__(44);
-let pageSignalActionMap = __webpack_require__(101);
-let pageViewMap = __webpack_require__(103);
+let {SPA} = __webpack_require__(45);
+let pageSignalActionMap = __webpack_require__(102);
+let pageViewMap = __webpack_require__(104);
 
 SPA({
 
@@ -3113,19 +3142,19 @@ SPA({
 
 
 /***/ }),
-/* 44 */
+/* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-let {router, queryPager} = __webpack_require__(45);
+let {router, queryPager} = __webpack_require__(46);
 let {mount} = __webpack_require__(6);
 let n = __webpack_require__(2);
-let pfcApis = __webpack_require__(67);
-let {signalActionFlow} = __webpack_require__(71);
+let pfcApis = __webpack_require__(68);
+let {signalActionFlow} = __webpack_require__(72);
 let {Signal} = __webpack_require__(5);
-let {wrapPagePropsWithStore} = __webpack_require__(100);
+let {wrapPagePropsWithStore} = __webpack_require__(101);
 
 const PAGE_RENDER_SIGNAL = 'kabanery_page_render';
 
@@ -3201,13 +3230,13 @@ module.exports = {
 
 
 /***/ }),
-/* 45 */
+/* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-module.exports = __webpack_require__(46);
+module.exports = __webpack_require__(47);
 
 /**
  * @readme-quick-run
@@ -3244,7 +3273,7 @@ module.exports = __webpack_require__(46);
 
 
 /***/ }),
-/* 46 */
+/* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3440,7 +3469,7 @@ module.exports = {
 
 
 /***/ }),
-/* 47 */
+/* 48 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3495,7 +3524,7 @@ module.exports = shadowFrame;
 
 
 /***/ }),
-/* 48 */
+/* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3551,7 +3580,7 @@ module.exports = startMomenter;
 
 
 /***/ }),
-/* 49 */
+/* 50 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3568,13 +3597,13 @@ let {
     parseStyle
 } = __webpack_require__(12);
 
-let plugs = __webpack_require__(53);
+let plugs = __webpack_require__(54);
 
-let view = __webpack_require__(56);
+let view = __webpack_require__(57);
 
 let mount = __webpack_require__(26);
 
-let N = __webpack_require__(64);
+let N = __webpack_require__(65);
 
 let reduceNode = __webpack_require__(14);
 
@@ -3604,7 +3633,7 @@ module.exports = {
 
 
 /***/ }),
-/* 50 */
+/* 51 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3709,13 +3738,13 @@ module.exports = {
 
 
 /***/ }),
-/* 51 */
+/* 52 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-let parseAttribute = __webpack_require__(52);
+let parseAttribute = __webpack_require__(53);
 
 let {
     isString,
@@ -3806,7 +3835,7 @@ module.exports = parseArgs;
 
 
 /***/ }),
-/* 52 */
+/* 53 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3880,14 +3909,14 @@ module.exports = parseAttribute;
 
 
 /***/ }),
-/* 53 */
+/* 54 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-let twowaybinding = __webpack_require__(54);
-let eventError = __webpack_require__(55);
+let twowaybinding = __webpack_require__(55);
+let eventError = __webpack_require__(56);
 
 module.exports = {
     twowaybinding,
@@ -3896,7 +3925,7 @@ module.exports = {
 
 
 /***/ }),
-/* 54 */
+/* 55 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3923,7 +3952,7 @@ module.exports = (obj, path) => (tagName, attributes, childExp) => {
 
 
 /***/ }),
-/* 55 */
+/* 56 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3955,7 +3984,7 @@ let wrapEventHandler = (fun, catcher) => {
 
 
 /***/ }),
-/* 56 */
+/* 57 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3975,7 +4004,7 @@ let {
     forEach
 } = __webpack_require__(4);
 
-let replace = __webpack_require__(57);
+let replace = __webpack_require__(58);
 
 let reduceNode = __webpack_require__(14);
 
@@ -4174,7 +4203,7 @@ module.exports = View;
 
 
 /***/ }),
-/* 57 */
+/* 58 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4196,7 +4225,7 @@ let {
     eventMapHook
 } = __webpack_require__(13);
 
-let applyAttibutes = __webpack_require__(61);
+let applyAttibutes = __webpack_require__(62);
 
 let replaceDirectly = (node, newNode) => {
     let parent = node.parentNode;
@@ -4310,7 +4339,7 @@ module.exports = (node, newNode) => {
 
 
 /***/ }),
-/* 58 */
+/* 59 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global) {// Unique ID creation requires a high quality random # generator.  In the
@@ -4347,10 +4376,10 @@ if (!rng) {
 
 module.exports = rng;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(59)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(60)))
 
 /***/ }),
-/* 59 */
+/* 60 */
 /***/ (function(module, exports) {
 
 var g;
@@ -4377,7 +4406,7 @@ module.exports = g;
 
 
 /***/ }),
-/* 60 */
+/* 61 */
 /***/ (function(module, exports) {
 
 /**
@@ -4406,7 +4435,7 @@ module.exports = bytesToUuid;
 
 
 /***/ }),
-/* 61 */
+/* 62 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4453,7 +4482,7 @@ module.exports = applyAttibutes;
 
 
 /***/ }),
-/* 62 */
+/* 63 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4500,7 +4529,7 @@ module.exports = {
 
 
 /***/ }),
-/* 63 */
+/* 64 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4656,7 +4685,7 @@ let getGlobalEventTypeId = (type) => `${globalEventTypePrefix}${type}`;
 
 
 /***/ }),
-/* 64 */
+/* 65 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4712,7 +4741,7 @@ module.exports = (...args) => {
 
 
 /***/ }),
-/* 65 */
+/* 66 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4803,7 +4832,7 @@ var isArray = Array.isArray || function (xs) {
 
 
 /***/ }),
-/* 66 */
+/* 67 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4895,14 +4924,14 @@ var objectKeys = Object.keys || function (obj) {
 
 
 /***/ }),
-/* 67 */
+/* 68 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-let stubAsApis = __webpack_require__(68);
-let pfcRequestor = __webpack_require__(70);
+let stubAsApis = __webpack_require__(69);
+let pfcRequestor = __webpack_require__(71);
 
 module.exports = (apiPath, stub) => {
     let pfcRequest = pfcRequestor(apiPath);
@@ -4961,7 +4990,7 @@ let isLazyFun = (f) => {
 
 
 /***/ }),
-/* 68 */
+/* 69 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4970,7 +4999,7 @@ let isLazyFun = (f) => {
 let {
     isObject,
     isFunction
-} = __webpack_require__(69);
+} = __webpack_require__(70);
 
 /**
  * we got stub and use it as apis to ccontruct pfc code
@@ -5056,7 +5085,7 @@ let serializeAtom = (atom) => {
 
 
 /***/ }),
-/* 69 */
+/* 70 */
 /***/ (function(module, exports) {
 
 // ignore whitespace
@@ -5097,7 +5126,7 @@ module.exports = {
 
 
 /***/ }),
-/* 70 */
+/* 71 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5135,7 +5164,7 @@ module.exports = requestor;
 
 
 /***/ }),
-/* 71 */
+/* 72 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5146,7 +5175,7 @@ let {
     signalSendRequestRunner,
     responseUpdateStateRunner,
     responseErrorRunner
-} = __webpack_require__(72);
+} = __webpack_require__(73);
 
 /**
  * action flow
@@ -5285,7 +5314,7 @@ module.exports = {
 
 
 /***/ }),
-/* 72 */
+/* 73 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5412,18 +5441,18 @@ module.exports = {
 
 
 /***/ }),
-/* 73 */
+/* 74 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-let parser = __webpack_require__(74);
+let parser = __webpack_require__(75);
 let {
     checkAST,
     runTimeCheck,
     getVariable
-} = __webpack_require__(98);
+} = __webpack_require__(99);
 
 let {
     T_ATOM,
@@ -5581,7 +5610,7 @@ module.exports = {
 
 
 /***/ }),
-/* 74 */
+/* 75 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5590,16 +5619,16 @@ module.exports = {
 let streamTokenSpliter = __webpack_require__(28);
 let {
     LR
-} = __webpack_require__(84);
+} = __webpack_require__(85);
 let {
     getProductionId,
     processTokens,
 } = __webpack_require__(35);
-let tokenTypes = __webpack_require__(95);
+let tokenTypes = __webpack_require__(96);
 let {
     ACTION,
     GOTO
-} = __webpack_require__(97);
+} = __webpack_require__(98);
 
 let {
     P_PROGRAM,
@@ -5851,7 +5880,7 @@ module.exports = () => {
 
 
 /***/ }),
-/* 75 */
+/* 76 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5869,7 +5898,7 @@ let {
     stateGraphDSL
 } = __webpack_require__(9);
 
-let buildFSM = __webpack_require__(81);
+let buildFSM = __webpack_require__(82);
 
 let {
     map
@@ -5877,12 +5906,12 @@ let {
 
 let {
     getMatch
-} = __webpack_require__(82);
+} = __webpack_require__(83);
 
 let {
     findToken,
     filterTypes
-} = __webpack_require__(83);
+} = __webpack_require__(84);
 
 let {
     assembleToken
@@ -6120,7 +6149,7 @@ module.exports = {
 
 
 /***/ }),
-/* 76 */
+/* 77 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6128,9 +6157,9 @@ module.exports = {
 
 let {
     QUIT, WAIT, MATCH
-} = __webpack_require__(77);
+} = __webpack_require__(78);
 
-let stateGraphDSL = __webpack_require__(78);
+let stateGraphDSL = __webpack_require__(79);
 
 const START_STATE = '__start__state__';
 
@@ -6203,7 +6232,7 @@ module.exports = {
 
 
 /***/ }),
-/* 77 */
+/* 78 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6217,7 +6246,7 @@ module.exports = {
 
 
 /***/ }),
-/* 78 */
+/* 79 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6239,7 +6268,7 @@ let {
     circle,
 
     isEpsilonTransition
-} = __webpack_require__(79);
+} = __webpack_require__(80);
 
 let {
     mergeMap
@@ -6449,7 +6478,7 @@ module.exports = mergeMap(actionDSL, {
 
 
 /***/ }),
-/* 79 */
+/* 80 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6607,7 +6636,7 @@ module.exports = mergeMap(actionDSL, {
 
 
 /***/ }),
-/* 80 */
+/* 81 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6732,7 +6761,7 @@ module.exports = {
 
 
 /***/ }),
-/* 81 */
+/* 82 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6772,7 +6801,7 @@ module.exports = (stateMap, accepts) => {
 
 
 /***/ }),
-/* 82 */
+/* 83 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6804,7 +6833,7 @@ module.exports = {
 
 
 /***/ }),
-/* 83 */
+/* 84 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6872,7 +6901,7 @@ module.exports = {
 
 
 /***/ }),
-/* 84 */
+/* 85 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6921,11 +6950,11 @@ module.exports = {
  * let ast = lrParse(null); // null as end symbol
  * console.log(JSON.stringify(ast, null, 4));
  */
-module.exports = __webpack_require__(85);
+module.exports = __webpack_require__(86);
 
 
 /***/ }),
-/* 85 */
+/* 86 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6945,9 +6974,9 @@ module.exports = __webpack_require__(85);
  * 2. shift-in reduce
  */
 
-let LR = __webpack_require__(86);
-let LR1Table = __webpack_require__(89);
-let ctxFreeGrammer = __webpack_require__(94);
+let LR = __webpack_require__(87);
+let LR1Table = __webpack_require__(90);
+let ctxFreeGrammer = __webpack_require__(95);
 let {
     forEach
 } = __webpack_require__(7);
@@ -6978,7 +7007,7 @@ module.exports = {
 
 
 /***/ }),
-/* 86 */
+/* 87 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7011,7 +7040,7 @@ let {
     initAST,
     reduceAST,
     appendToken
-} = __webpack_require__(87);
+} = __webpack_require__(88);
 
 /**
  * configuration = [stack, tokens]
@@ -7166,7 +7195,7 @@ let getNextInputToken = (configuration) => {
 
 
 /***/ }),
-/* 87 */
+/* 88 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7295,7 +7324,7 @@ module.exports = {
 
 
 /***/ }),
-/* 88 */
+/* 89 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7420,20 +7449,20 @@ module.exports = {
 
 
 /***/ }),
-/* 89 */
+/* 90 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-let LR1CanonicalCollection = __webpack_require__(90);
+let LR1CanonicalCollection = __webpack_require__(91);
 let {
     forEach, findIndex
 } = __webpack_require__(7);
-let GO = __webpack_require__(91);
+let GO = __webpack_require__(92);
 let {
     LR1Itemer
-} = __webpack_require__(92);
+} = __webpack_require__(93);
 let {
     sameClosure
 } = __webpack_require__(18);
@@ -7505,7 +7534,7 @@ let getStateIndex = (C, I) => findIndex(C, I, {
 
 
 /***/ }),
-/* 90 */
+/* 91 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7586,7 +7615,7 @@ let getGoToSymbolsSet = (symbols, I, go) => {
 
 
 /***/ }),
-/* 91 */
+/* 92 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7661,13 +7690,13 @@ module.exports = (grammer, LR1Grammer) => {
 
 
 /***/ }),
-/* 92 */
+/* 93 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-let First = __webpack_require__(93);
+let First = __webpack_require__(94);
 
 let {
     union, reduce, filter, flat, map
@@ -7858,7 +7887,7 @@ module.exports = {
 
 
 /***/ }),
-/* 93 */
+/* 94 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7971,7 +8000,7 @@ module.exports = (grammer) => {
 
 
 /***/ }),
-/* 94 */
+/* 95 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8078,7 +8107,7 @@ let getNoneTerminalProductionMap = (producitons) => {
 
 
 /***/ }),
-/* 95 */
+/* 96 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8087,7 +8116,7 @@ let getNoneTerminalProductionMap = (producitons) => {
 let {
     stringGraph,
     numberGraph
-} = __webpack_require__(96);
+} = __webpack_require__(97);
 
 let {
     buildFSM
@@ -8222,7 +8251,7 @@ module.exports = [
 
 
 /***/ }),
-/* 96 */
+/* 97 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8280,13 +8309,13 @@ module.exports = {
 
 
 /***/ }),
-/* 97 */
+/* 98 */
 /***/ (function(module, exports) {
 
 module.exports={"GOTO":[{"PROGRAM":11,"EXPRESSION_LIST":12,"EXPRESSION":13,"UPDATE_EXPRESSION":14,"QUERY_EXPRESSION":15,"PATH":16,"ATOM_DATA":17},{"PATH":20},{"PATH":23},{},{"PATH":25},{"PATH":26},{},{},{},{},{},{},{},{},{},{},{},{},{"PATH":29},{"PATH":30},{},{"PATH":31},{"PATH":32},{},{"QUERY_EXPRESSION":43,"QUERY_EXPRESSION_LIST":44,"PATH":45,"ATOM_DATA":46},{},{},{"EXPRESSION_LIST":47,"EXPRESSION":13,"UPDATE_EXPRESSION":14,"QUERY_EXPRESSION":15,"PATH":16,"ATOM_DATA":17},{"QUERY_EXPRESSION":48,"PATH":49,"ATOM_DATA":17},{},{},{},{},{"QUERY_EXPRESSION":50,"PATH":49,"ATOM_DATA":17},{},{},{"PATH":52},{"PATH":53},{},{},{},{},{},{},{},{},{},{},{},{},{},{"QUERY_EXPRESSION":43,"QUERY_EXPRESSION_LIST":57,"PATH":45,"ATOM_DATA":46},{},{},{"QUERY_EXPRESSION":43,"QUERY_EXPRESSION_LIST":58,"PATH":45,"ATOM_DATA":46},{},{},{},{},{}],"ACTION":[{"$":{"type":"reduce","production":["EXPRESSION",[]]},"semicolon":{"type":"reduce","production":["EXPRESSION",[]]},"variableName":{"type":"shift","state":3},"delete":{"type":"shift","state":1},"append":{"type":"shift","state":2},"true":{"type":"shift","state":6},"false":{"type":"shift","state":7},"null":{"type":"shift","state":8},"string":{"type":"shift","state":9},"number":{"type":"shift","state":10},"nodeName":{"type":"shift","state":4},"nodeNameVariable":{"type":"shift","state":5}},{"nodeName":{"type":"shift","state":18},"nodeNameVariable":{"type":"shift","state":19}},{"nodeName":{"type":"shift","state":21},"nodeNameVariable":{"type":"shift","state":22}},{"$":{"type":"reduce","production":["QUERY_EXPRESSION",["variableName"]]},"semicolon":{"type":"reduce","production":["QUERY_EXPRESSION",["variableName"]]},"leftBracket":{"type":"shift","state":24}},{"$":{"type":"reduce","production":["PATH",["nodeName"]]},"assign":{"type":"reduce","production":["PATH",["nodeName"]]},"semicolon":{"type":"reduce","production":["PATH",["nodeName"]]},"nodeName":{"type":"shift","state":4},"nodeNameVariable":{"type":"shift","state":5}},{"$":{"type":"reduce","production":["PATH",["nodeNameVariable"]]},"assign":{"type":"reduce","production":["PATH",["nodeNameVariable"]]},"semicolon":{"type":"reduce","production":["PATH",["nodeNameVariable"]]},"nodeName":{"type":"shift","state":4},"nodeNameVariable":{"type":"shift","state":5}},{"$":{"type":"reduce","production":["ATOM_DATA",["true"]]},"semicolon":{"type":"reduce","production":["ATOM_DATA",["true"]]}},{"$":{"type":"reduce","production":["ATOM_DATA",["false"]]},"semicolon":{"type":"reduce","production":["ATOM_DATA",["false"]]}},{"$":{"type":"reduce","production":["ATOM_DATA",["null"]]},"semicolon":{"type":"reduce","production":["ATOM_DATA",["null"]]}},{"$":{"type":"reduce","production":["ATOM_DATA",["string"]]},"semicolon":{"type":"reduce","production":["ATOM_DATA",["string"]]}},{"$":{"type":"reduce","production":["ATOM_DATA",["number"]]},"semicolon":{"type":"reduce","production":["ATOM_DATA",["number"]]}},{"$":{"type":"accept"}},{"$":{"type":"reduce","production":["PROGRAM",["EXPRESSION_LIST"]]}},{"$":{"type":"reduce","production":["EXPRESSION_LIST",["EXPRESSION"]]},"semicolon":{"type":"shift","state":27}},{"$":{"type":"reduce","production":["EXPRESSION",["UPDATE_EXPRESSION"]]},"semicolon":{"type":"reduce","production":["EXPRESSION",["UPDATE_EXPRESSION"]]}},{"$":{"type":"reduce","production":["EXPRESSION",["QUERY_EXPRESSION"]]},"semicolon":{"type":"reduce","production":["EXPRESSION",["QUERY_EXPRESSION"]]}},{"$":{"type":"reduce","production":["QUERY_EXPRESSION",["PATH"]]},"semicolon":{"type":"reduce","production":["QUERY_EXPRESSION",["PATH"]]},"assign":{"type":"shift","state":28}},{"$":{"type":"reduce","production":["QUERY_EXPRESSION",["ATOM_DATA"]]},"semicolon":{"type":"reduce","production":["QUERY_EXPRESSION",["ATOM_DATA"]]}},{"$":{"type":"reduce","production":["PATH",["nodeName"]]},"semicolon":{"type":"reduce","production":["PATH",["nodeName"]]},"nodeName":{"type":"shift","state":18},"nodeNameVariable":{"type":"shift","state":19}},{"$":{"type":"reduce","production":["PATH",["nodeNameVariable"]]},"semicolon":{"type":"reduce","production":["PATH",["nodeNameVariable"]]},"nodeName":{"type":"shift","state":18},"nodeNameVariable":{"type":"shift","state":19}},{"$":{"type":"reduce","production":["UPDATE_EXPRESSION",["delete","PATH"]]},"semicolon":{"type":"reduce","production":["UPDATE_EXPRESSION",["delete","PATH"]]}},{"assign":{"type":"reduce","production":["PATH",["nodeName"]]},"nodeName":{"type":"shift","state":21},"nodeNameVariable":{"type":"shift","state":22}},{"assign":{"type":"reduce","production":["PATH",["nodeNameVariable"]]},"nodeName":{"type":"shift","state":21},"nodeNameVariable":{"type":"shift","state":22}},{"assign":{"type":"shift","state":33}},{"rightBracket":{"type":"shift","state":35},"variableName":{"type":"shift","state":34},"true":{"type":"shift","state":38},"false":{"type":"shift","state":39},"null":{"type":"shift","state":40},"string":{"type":"shift","state":41},"number":{"type":"shift","state":42},"nodeName":{"type":"shift","state":36},"nodeNameVariable":{"type":"shift","state":37}},{"$":{"type":"reduce","production":["PATH",["nodeName","PATH"]]},"assign":{"type":"reduce","production":["PATH",["nodeName","PATH"]]},"semicolon":{"type":"reduce","production":["PATH",["nodeName","PATH"]]}},{"$":{"type":"reduce","production":["PATH",["nodeNameVariable","PATH"]]},"assign":{"type":"reduce","production":["PATH",["nodeNameVariable","PATH"]]},"semicolon":{"type":"reduce","production":["PATH",["nodeNameVariable","PATH"]]}},{"$":{"type":"reduce","production":["EXPRESSION",[]]},"semicolon":{"type":"reduce","production":["EXPRESSION",[]]},"variableName":{"type":"shift","state":3},"delete":{"type":"shift","state":1},"append":{"type":"shift","state":2},"true":{"type":"shift","state":6},"false":{"type":"shift","state":7},"null":{"type":"shift","state":8},"string":{"type":"shift","state":9},"number":{"type":"shift","state":10},"nodeName":{"type":"shift","state":4},"nodeNameVariable":{"type":"shift","state":5}},{"variableName":{"type":"shift","state":3},"true":{"type":"shift","state":6},"false":{"type":"shift","state":7},"null":{"type":"shift","state":8},"string":{"type":"shift","state":9},"number":{"type":"shift","state":10},"nodeName":{"type":"shift","state":18},"nodeNameVariable":{"type":"shift","state":19}},{"$":{"type":"reduce","production":["PATH",["nodeName","PATH"]]},"semicolon":{"type":"reduce","production":["PATH",["nodeName","PATH"]]}},{"$":{"type":"reduce","production":["PATH",["nodeNameVariable","PATH"]]},"semicolon":{"type":"reduce","production":["PATH",["nodeNameVariable","PATH"]]}},{"assign":{"type":"reduce","production":["PATH",["nodeName","PATH"]]}},{"assign":{"type":"reduce","production":["PATH",["nodeNameVariable","PATH"]]}},{"variableName":{"type":"shift","state":3},"true":{"type":"shift","state":6},"false":{"type":"shift","state":7},"null":{"type":"shift","state":8},"string":{"type":"shift","state":9},"number":{"type":"shift","state":10},"nodeName":{"type":"shift","state":18},"nodeNameVariable":{"type":"shift","state":19}},{"comma":{"type":"reduce","production":["QUERY_EXPRESSION",["variableName"]]},"rightBracket":{"type":"reduce","production":["QUERY_EXPRESSION",["variableName"]]},"leftBracket":{"type":"shift","state":51}},{"$":{"type":"reduce","production":["QUERY_EXPRESSION",["variableName","leftBracket","rightBracket"]]},"semicolon":{"type":"reduce","production":["QUERY_EXPRESSION",["variableName","leftBracket","rightBracket"]]}},{"comma":{"type":"reduce","production":["PATH",["nodeName"]]},"rightBracket":{"type":"reduce","production":["PATH",["nodeName"]]},"nodeName":{"type":"shift","state":36},"nodeNameVariable":{"type":"shift","state":37}},{"comma":{"type":"reduce","production":["PATH",["nodeNameVariable"]]},"rightBracket":{"type":"reduce","production":["PATH",["nodeNameVariable"]]},"nodeName":{"type":"shift","state":36},"nodeNameVariable":{"type":"shift","state":37}},{"comma":{"type":"reduce","production":["ATOM_DATA",["true"]]},"rightBracket":{"type":"reduce","production":["ATOM_DATA",["true"]]}},{"comma":{"type":"reduce","production":["ATOM_DATA",["false"]]},"rightBracket":{"type":"reduce","production":["ATOM_DATA",["false"]]}},{"comma":{"type":"reduce","production":["ATOM_DATA",["null"]]},"rightBracket":{"type":"reduce","production":["ATOM_DATA",["null"]]}},{"comma":{"type":"reduce","production":["ATOM_DATA",["string"]]},"rightBracket":{"type":"reduce","production":["ATOM_DATA",["string"]]}},{"comma":{"type":"reduce","production":["ATOM_DATA",["number"]]},"rightBracket":{"type":"reduce","production":["ATOM_DATA",["number"]]}},{"rightBracket":{"type":"reduce","production":["QUERY_EXPRESSION_LIST",["QUERY_EXPRESSION"]]},"comma":{"type":"shift","state":54}},{"rightBracket":{"type":"shift","state":55}},{"comma":{"type":"reduce","production":["QUERY_EXPRESSION",["PATH"]]},"rightBracket":{"type":"reduce","production":["QUERY_EXPRESSION",["PATH"]]}},{"comma":{"type":"reduce","production":["QUERY_EXPRESSION",["ATOM_DATA"]]},"rightBracket":{"type":"reduce","production":["QUERY_EXPRESSION",["ATOM_DATA"]]}},{"$":{"type":"reduce","production":["EXPRESSION_LIST",["EXPRESSION","semicolon","EXPRESSION_LIST"]]}},{"$":{"type":"reduce","production":["UPDATE_EXPRESSION",["PATH","assign","QUERY_EXPRESSION"]]},"semicolon":{"type":"reduce","production":["UPDATE_EXPRESSION",["PATH","assign","QUERY_EXPRESSION"]]}},{"$":{"type":"reduce","production":["QUERY_EXPRESSION",["PATH"]]},"semicolon":{"type":"reduce","production":["QUERY_EXPRESSION",["PATH"]]}},{"$":{"type":"reduce","production":["UPDATE_EXPRESSION",["append","PATH","assign","QUERY_EXPRESSION"]]},"semicolon":{"type":"reduce","production":["UPDATE_EXPRESSION",["append","PATH","assign","QUERY_EXPRESSION"]]}},{"rightBracket":{"type":"shift","state":56},"variableName":{"type":"shift","state":34},"true":{"type":"shift","state":38},"false":{"type":"shift","state":39},"null":{"type":"shift","state":40},"string":{"type":"shift","state":41},"number":{"type":"shift","state":42},"nodeName":{"type":"shift","state":36},"nodeNameVariable":{"type":"shift","state":37}},{"comma":{"type":"reduce","production":["PATH",["nodeName","PATH"]]},"rightBracket":{"type":"reduce","production":["PATH",["nodeName","PATH"]]}},{"comma":{"type":"reduce","production":["PATH",["nodeNameVariable","PATH"]]},"rightBracket":{"type":"reduce","production":["PATH",["nodeNameVariable","PATH"]]}},{"variableName":{"type":"shift","state":34},"true":{"type":"shift","state":38},"false":{"type":"shift","state":39},"null":{"type":"shift","state":40},"string":{"type":"shift","state":41},"number":{"type":"shift","state":42},"nodeName":{"type":"shift","state":36},"nodeNameVariable":{"type":"shift","state":37}},{"$":{"type":"reduce","production":["QUERY_EXPRESSION",["variableName","leftBracket","QUERY_EXPRESSION_LIST","rightBracket"]]},"semicolon":{"type":"reduce","production":["QUERY_EXPRESSION",["variableName","leftBracket","QUERY_EXPRESSION_LIST","rightBracket"]]}},{"comma":{"type":"reduce","production":["QUERY_EXPRESSION",["variableName","leftBracket","rightBracket"]]},"rightBracket":{"type":"reduce","production":["QUERY_EXPRESSION",["variableName","leftBracket","rightBracket"]]}},{"rightBracket":{"type":"shift","state":59}},{"rightBracket":{"type":"reduce","production":["QUERY_EXPRESSION_LIST",["QUERY_EXPRESSION","comma","QUERY_EXPRESSION_LIST"]]}},{"comma":{"type":"reduce","production":["QUERY_EXPRESSION",["variableName","leftBracket","QUERY_EXPRESSION_LIST","rightBracket"]]},"rightBracket":{"type":"reduce","production":["QUERY_EXPRESSION",["variableName","leftBracket","QUERY_EXPRESSION_LIST","rightBracket"]]}}]}
 
 /***/ }),
-/* 98 */
+/* 99 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8428,7 +8457,7 @@ module.exports = {
 
 
 /***/ }),
-/* 99 */
+/* 100 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8489,7 +8518,7 @@ module.exports = {
 
 
 /***/ }),
-/* 100 */
+/* 101 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8596,7 +8625,7 @@ module.exports = {
 
 
 /***/ }),
-/* 101 */
+/* 102 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8604,7 +8633,7 @@ module.exports = {
 
 const {
    // signal constants
-} = __webpack_require__(102);
+} = __webpack_require__(103);
 
 let {wrapBaseSignalActions} = __webpack_require__(37);
 
@@ -8640,7 +8669,7 @@ module.exports = wrapBaseSignalActions({
 });
 
 /***/ }),
-/* 102 */
+/* 103 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8652,13 +8681,13 @@ module.exports = {
 
 
 /***/ }),
-/* 103 */
+/* 104 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-let indexPage = __webpack_require__(104);
+let indexPage = __webpack_require__(105);
 
 module.exports = {
     indexPage
@@ -8666,13 +8695,13 @@ module.exports = {
 
 
 /***/ }),
-/* 104 */
+/* 105 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-let SimplePager = __webpack_require__(105);
+let SimplePager = __webpack_require__(106);
 let lumineView = __webpack_require__(1);
 let n = __webpack_require__(2);
 let {
@@ -8686,7 +8715,7 @@ let {
 __webpack_require__(5);
 let {
     compileTreeScript
-} = __webpack_require__(38);
+} = __webpack_require__(39);
 
 // SIGNAL CONSTANTS
 let {
@@ -8694,13 +8723,13 @@ let {
 } =
 __webpack_require__(37);
 
-let Input = __webpack_require__(39);
-let Button = __webpack_require__(40);
+let Input = __webpack_require__(40);
+let Button = __webpack_require__(41);
 let Vn = __webpack_require__(20);
 let Hn = __webpack_require__(21);
-let Modal = __webpack_require__(116);
+let Modal = __webpack_require__(114);
 
-let BrowserWindowManangerView = __webpack_require__(114)
+let BrowserWindowManangerView = __webpack_require__(115)
 
 /**
  *  SimplePager encapsulate notice and loading view.
@@ -8763,22 +8792,30 @@ module.exports = SimplePager(lumineView(({
             })),
 
             // search window
-            n(Input, syncBindWithKeyMap(ctx, {
-                'searchWindowWord': 'value'
-            }, {
-                bindedProps: {
-                    placeholder: 'keyword of window url'
-                }
-            })),
+            // TODO form
 
-            n(Button, {
-                onsignal: onSignalType('click', () => {
-                    let matchs = searchWindow(props.searchWindowWord, props.browserWindows);
-                    props.showSearchResultList = true;
-                    props.searchResult = matchs;
-                    ctx.update();
-                })
-            })
+            n('form', {
+                onclick: (e) => {
+                    e.preventDefault();
+                }
+            }, [
+                n(Input, syncBindWithKeyMap(ctx, {
+                    'searchWindowWord': 'value'
+                }, {
+                    bindedProps: {
+                        placeholder: 'keyword of window url'
+                    }
+                })),
+
+                n(Button, {
+                    onsignal: onSignalType('click', () => {
+                        let matchs = searchWindow(props.searchWindowWord, props.browserWindows);
+                        props.showSearchResultList = true;
+                        props.searchResult = matchs;
+                        ctx.update();
+                    })
+                }, 'search')
+            ])
         ]),
 
         n(BrowserWindowManangerView, syncBindWithKeyMap(ctx, {
@@ -8851,7 +8888,7 @@ let searchWindow = (word, browserWindows) => {
 
 
 /***/ }),
-/* 105 */
+/* 106 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8859,7 +8896,7 @@ let searchWindow = (word, browserWindows) => {
 
 let lumineView = __webpack_require__(1);
 let n = __webpack_require__(2);
-let PageLoading = __webpack_require__(108);
+let PageLoading = __webpack_require__(109);
 let Notice = __webpack_require__(113);
 let {syncBindWithKeyMap} = __webpack_require__(10);
 let Full = __webpack_require__(11);
@@ -8898,7 +8935,7 @@ module.exports = (PageView) => {
 
 
 /***/ }),
-/* 106 */
+/* 107 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9056,7 +9093,7 @@ module.exports = {
 
 
 /***/ }),
-/* 107 */
+/* 108 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9153,7 +9190,7 @@ module.exports = (classTable) => {
 
 
 /***/ }),
-/* 108 */
+/* 109 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9162,8 +9199,8 @@ module.exports = (classTable) => {
 let n = __webpack_require__(2);
 let lumineView = __webpack_require__(1);
 
-let TextLoading = __webpack_require__(109);
-let PageMask = __webpack_require__(110);
+let TextLoading = __webpack_require__(110);
+let PageMask = __webpack_require__(38);
 let Empty = __webpack_require__(112);
 
 module.exports = lumineView(({
@@ -9191,7 +9228,7 @@ module.exports = lumineView(({
 
 
 /***/ }),
-/* 109 */
+/* 110 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9240,35 +9277,6 @@ module.exports = lumineView(({
             return {
                 content: JSON.stringify('.'),
                 animation: `${getClassName('loading')} 3s infinite ease-in-out`
-            };
-        }
-    }
-});
-
-
-/***/ }),
-/* 110 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-let FullWindow = __webpack_require__(111);
-let lumineView = __webpack_require__(1);
-let n = __webpack_require__(2);
-
-module.exports = lumineView(({
-    props,
-    children
-}) => {
-    return n(FullWindow, props, children);
-}, {
-    defaultProps: {
-        style: (theme) => {
-            return {
-                backgroundColor: theme.basics.veilColor,
-                color: theme.basics.fontColor,
-                zIndex: 1000
             };
         }
     }
@@ -9353,7 +9361,7 @@ let {
 
 let {
     compileTreeScript
-} = __webpack_require__(38);
+} = __webpack_require__(39);
 
 let S_HideNotice = compileTreeScript('.props.show=false');
 
@@ -9404,7 +9412,72 @@ module.exports = lumineView(({
 /* 114 */
 /***/ (function(module, exports, __webpack_require__) {
 
-let BrowserView = __webpack_require__(115);
+"use strict";
+
+
+let lumineView = __webpack_require__(1);
+let n = __webpack_require__(2);
+let Mask = __webpack_require__(38);
+let {
+    styles
+} = __webpack_require__(3);
+let {
+    onSignalType
+} = __webpack_require__(5);
+
+module.exports = lumineView(({
+    props,
+    children
+}, {
+    updateWithNotify
+}) => {
+    return props.show ? n(Mask, {
+        style: props.style.maskStyle,
+        theme: props.theme,
+        onsignal: onSignalType('fullwindow-click', () => {
+            if (props.autoHide) {
+                updateWithNotify(null, 'props.show', false);
+            }
+        })
+    }, [
+        n('div', {
+            style: {
+                display: 'table-cell',
+                verticalAlign: 'middle'
+            }
+        }, [ // middle
+            n('div', {
+                style: props.style.modalContainer,
+                onclick: (e) => {
+                    e.stopPropagation();
+                }
+            }, children)
+        ])
+    ]) : n('div');
+}, {
+    defaultProps: {
+        show: true,
+        autoHide: false,
+        style: (theme) => {
+            return {
+                maskStyle: {
+                    textAlign: 'center',
+                    display: 'table'
+                },
+                modalContainer: styles(theme.modalBulk, {
+                    padding: theme.basics.narrowPadding
+                })
+            };
+        }
+    }
+});
+
+
+/***/ }),
+/* 115 */
+/***/ (function(module, exports, __webpack_require__) {
+
+let BrowserView = __webpack_require__(116);
 let lumineView = __webpack_require__(1);
 let n = __webpack_require__(2);
 let {
@@ -9523,7 +9596,7 @@ module.exports = lumineView(({
 
 
 /***/ }),
-/* 115 */
+/* 116 */
 /***/ (function(module, exports, __webpack_require__) {
 
 let lumineView = __webpack_require__(1);
@@ -9535,8 +9608,8 @@ let {
     Signal,
     onSignalType
 } = __webpack_require__(5);
-let Input = __webpack_require__(39);
-let Button = __webpack_require__(40);
+let Input = __webpack_require__(40);
+let Button = __webpack_require__(41);
 let Vn = __webpack_require__(20);
 let Full = __webpack_require__(11);
 let Hn = __webpack_require__(21);
@@ -9663,71 +9736,6 @@ module.exports = lumineView(({
         urlList: [{
             url: ''
         }]
-    }
-});
-
-
-/***/ }),
-/* 116 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-let lumineView = __webpack_require__(1);
-let n = __webpack_require__(2);
-let Mask = __webpack_require__(110);
-let {
-    styles
-} = __webpack_require__(3);
-let {
-    onSignalType
-} = __webpack_require__(5);
-
-module.exports = lumineView(({
-    props,
-    children
-}, {
-    updateWithNotify
-}) => {
-    return props.show ? n(Mask, {
-        style: props.style.maskStyle,
-        theme: props.theme,
-        onsignal: onSignalType('fullwindow-click', () => {
-            if (props.autoHide) {
-                updateWithNotify(null, 'props.show', false);
-            }
-        })
-    }, [
-        n('div', {
-            style: {
-                display: 'table-cell',
-                verticalAlign: 'middle'
-            }
-        }, [ // middle
-            n('div', {
-                style: props.style.modalContainer,
-                onclick: (e) => {
-                    e.stopPropagation();
-                }
-            }, children)
-        ])
-    ]) : n('div');
-}, {
-    defaultProps: {
-        show: true,
-        autoHide: false,
-        style: (theme) => {
-            return {
-                maskStyle: {
-                    textAlign: 'center',
-                    display: 'table'
-                },
-                modalContainer: styles(theme.modalBulk, {
-                    padding: theme.basics.narrowPadding
-                })
-            };
-        }
     }
 });
 
