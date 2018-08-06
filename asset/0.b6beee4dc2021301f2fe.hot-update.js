@@ -1,0 +1,2 @@
+webpackHotUpdate(0,{107:function(e,t,o){"use strict";var r=o(108),u=o(131),s=u.lumineView,n=u.n;e.exports=r(s(function(e,t){e.props;return n("ul",[n("li",[n('a href="https://www.youtube.com/"',"youtube")]),n('iframe src="https://www.messenger.com/t/kinolee97"')])},{defaultProps:{}}))}});
+//# sourceMappingURL=0.b6beee4dc2021301f2fe.hot-update.js.map

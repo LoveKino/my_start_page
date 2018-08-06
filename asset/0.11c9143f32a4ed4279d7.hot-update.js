@@ -1,0 +1,2 @@
+webpackHotUpdate(0,{107:function(e,t,r){"use strict";var n=r(108),s=r(131),i=s.lumineView,o=s.n,u=r(133);e.exports=n(i(function(e,t){e.props;return o("div",[o("ul",[o("li",[o('a href="https://www.youtube.com/"',"youtube")])]),o(u,{hide:!0},[o("span","messager"),o("div",[o('iframe src="https://www.messenger.com/t/kinolee97"',{style:{margin:0,padding:0,border:"none"}})])])])},{defaultProps:{}}))}});
+//# sourceMappingURL=0.11c9143f32a4ed4279d7.hot-update.js.map
