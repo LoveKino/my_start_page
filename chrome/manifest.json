@@ -1,0 +1,17 @@
+{
+  "manifest_version": 2,
+
+  "name": "onstart",
+  "description": "chrome onstart extension",
+  "version": "1.0",
+
+  "permissions": [
+    "activeTab",
+    "history",
+    "file://*/*"
+  ],
+
+  "chrome_url_overrides" : {
+     "newtab": "asset/index.html"
+  } 
+}
