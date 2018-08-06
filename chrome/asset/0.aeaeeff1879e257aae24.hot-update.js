@@ -1,2 +1,0 @@
-webpackHotUpdate(0,{107:function(t,e,u){"use strict";var o=u(108),r=u(131),n=r.lumineView,p=r.n;t.exports=o(n(function(t,e){t.props;return p("ul",[p("li",[p('a href="https://www.youtube.com/"')])])},{defaultProps:{}}))}});
-//# sourceMappingURL=0.aeaeeff1879e257aae24.hot-update.js.map

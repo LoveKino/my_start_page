@@ -1,2 +1,0 @@
-webpackHotUpdate(0,{40:function(e,a,t){"use strict";var o=t(41).SPA,i=t(104),p=t(106);document.body.focus(),alert(1),o({pageViewMap:p,pageSignalActionMap:i,pageOptionsMap:{indexPage:{localStateStore:!1,localStateStoreWhiteList:[]}},defaultPage:"indexPage"})}});
-//# sourceMappingURL=0.9e4ac9d7176d309aea39.hot-update.js.map
