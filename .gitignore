@@ -62,3 +62,6 @@ typings/
 *.swo
 
 *.DS_Store
+
+asset/*.hot-update.json
+asset/*.hot-update.js.map
