@@ -64,7 +64,7 @@
 /******/
 /******/ 	var hotApplyOnUpdate = true;
 /******/ 	// eslint-disable-next-line no-unused-vars
-/******/ 	var hotCurrentHash = "c45b1987fd1cc31fa8e5";
+/******/ 	var hotCurrentHash = "bd17f6dab03bff463f8c";
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule;
@@ -950,7 +950,7 @@ module.exports = SimplePager(lumineView(function (_ref, ctx) {
     style: {
       padding: 8
     }
-  }, [n('h3', 'plan'), n('ul', [n('li', 'Learn English (1 hour)'), n('li', 'Algorithm (1 hour)'), n('li', 'CASACN (1 hour)'), n('li', 'Health exercise (1 hour)')]),
+  }, [n('h3', 'plan'), n('ul', [n('li', 'Learn English (1 hour, suggested time: 13:30-14:30)'), n('li', 'Algorithm (1 hour, suggested time: 17:00-18:00)'), n('li', 'CASACN (1 hour, suggested time: 21:00-22:00)'), n('li', 'Health exercise (1 hour: 18:30-19:30)')]),
 
   // TODO
   n(FrameLink, {
