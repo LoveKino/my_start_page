@@ -64,7 +64,7 @@
 /******/
 /******/ 	var hotApplyOnUpdate = true;
 /******/ 	// eslint-disable-next-line no-unused-vars
-/******/ 	var hotCurrentHash = "f3851686d03f0391b297";
+/******/ 	var hotCurrentHash = "9dc6a7493e5577f34380";
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule;
@@ -990,6 +990,9 @@ module.exports = SimplePager(lumineView(function (_ref, ctx) {
     }, {
       name: 'MDN',
       url: 'https://developer.mozilla.org/en-US/'
+    }, {
+      name: 'js console',
+      url: 'https://jsconsole.com/'
     }]
   }
 }));
