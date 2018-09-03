@@ -64,7 +64,7 @@
 /******/
 /******/ 	var hotApplyOnUpdate = true;
 /******/ 	// eslint-disable-next-line no-unused-vars
-/******/ 	var hotCurrentHash = "815da21caf682a8c2b5d";
+/******/ 	var hotCurrentHash = "854809f4fb836aaf70a4";
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule;
@@ -956,7 +956,7 @@ module.exports = SimplePager(lumineView(function (_ref, ctx) {
   n(FrameLink, {
     name: 'plan service. (TODO design a plan service)',
     url: ''
-  }), n('h3', 'tools'), n('ul', [props.tools.map(function (tool) {
+  }), n('h3', 'toolsites'), n('ul', [props.toolsites.map(function (tool) {
     // TODO fix fold problem
     return n('li', [n(FrameLink, {
       name: tool.name,
@@ -969,7 +969,7 @@ module.exports = SimplePager(lumineView(function (_ref, ctx) {
   })])]);
 }, {
   defaultProps: {
-    tools: [{
+    toolsites: [{
       name: 'youtube',
       url: 'https://www.youtube.com/'
     }, {
@@ -981,6 +981,12 @@ module.exports = SimplePager(lumineView(function (_ref, ctx) {
     }, {
       name: 'translator',
       url: 'https://translate.google.com/'
+    }, {
+      name: "scala api",
+      url: 'https://www.scala-lang.org/files/archive/api/current/'
+    }, {
+      name: "nodejs doc",
+      url: 'https://nodejs.org/dist/latest-v10.x/docs/api/'
     }]
   }
 }));
