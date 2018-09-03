@@ -64,7 +64,7 @@
 /******/
 /******/ 	var hotApplyOnUpdate = true;
 /******/ 	// eslint-disable-next-line no-unused-vars
-/******/ 	var hotCurrentHash = "bd17f6dab03bff463f8c";
+/******/ 	var hotCurrentHash = "815da21caf682a8c2b5d";
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule;
@@ -978,6 +978,9 @@ module.exports = SimplePager(lumineView(function (_ref, ctx) {
     }, {
       name: 'facebook messager',
       url: 'https://www.messenger.com/t/kinolee97'
+    }, {
+      name: 'translator',
+      url: 'https://translate.google.com/'
     }]
   }
 }));
