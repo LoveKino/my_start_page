@@ -64,7 +64,7 @@
 /******/
 /******/ 	var hotApplyOnUpdate = true;
 /******/ 	// eslint-disable-next-line no-unused-vars
-/******/ 	var hotCurrentHash = "9dc6a7493e5577f34380";
+/******/ 	var hotCurrentHash = "3ea919b75c37593fddf8";
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule;
@@ -950,13 +950,13 @@ module.exports = SimplePager(lumineView(function (_ref, ctx) {
     style: {
       padding: 8
     }
-  }, [n('h3', 'plan'), n('ul', [n('li', 'Learn English (1 hour, suggested time: 13:30-14:30)'), n('li', 'Algorithm (1 hour, suggested time: 17:00-18:00)'), n('li', 'CASACN (1 hour, suggested time: 21:00-22:00)'), n('li', 'Health exercise (1 hour: 18:30-19:30)')]),
+  }, [n('h2', 'plan'), n('ul', [n('li', 'Learn English (1 hour, suggested time: 13:30-14:30)'), n('li', 'Algorithm (1 hour, suggested time: 17:00-18:00)'), n('li', 'CASACN (1 hour, suggested time: 21:00-22:00)'), n('li', 'Health exercise (1 hour: 18:30-19:30)')]),
 
   // TODO
   n(FrameLink, {
     name: 'plan service. (TODO design a plan service)',
     url: ''
-  }), n('h3', 'toolsites'), n('ul', [props.toolsites.map(function (tool) {
+  }), n('h2', 'toolsites'), n('ul', [props.toolsites.map(function (tool) {
     // TODO fix fold problem
     return n('li', [n(FrameLink, {
       name: tool.name,
@@ -990,7 +990,10 @@ module.exports = SimplePager(lumineView(function (_ref, ctx) {
     }, {
       name: 'MDN',
       url: 'https://developer.mozilla.org/en-US/'
-    }, {
+    },
+
+    // TODO some code compiler
+    {
       name: 'js console',
       url: 'https://jsconsole.com/'
     }]
@@ -1015,11 +1018,13 @@ var _require = __webpack_require__(/*! kabanery-lumine */ "./node_modules/kabane
 
 var FrameWindow = __webpack_require__(/*! ./frameWindow */ "./lib/view/frameWindow.js");
 var Fold = __webpack_require__(/*! kabanery-lumine/lib/view/fold/fold */ "./node_modules/kabanery-lumine/lib/view/fold/fold.js");
+var Input = __webpack_require__(/*! kabanery-lumine/lib/view/input/input */ "./node_modules/kabanery-lumine/lib/view/input/input.js");
 
-module.exports = lumineView(function (_ref) {
+module.exports = lumineView(function (_ref, ctx) {
   var props = _ref.props;
 
-  return n('div', {}, [n('div', props.name), n('div', {
+  console.log(props);
+  return n('div', {}, [n('h3', props.name), n('div', {
     style: {
       padding: '0 8 0 8'
     }
@@ -1039,19 +1044,22 @@ module.exports = lumineView(function (_ref) {
       e.stopPropagation();
       window.open(props.url, '_blank');
     }
-  }, 'new page'), n('input', {
-    style: {
-      width: 200
-    },
-    value: props.url,
+  }, 'new page'), n('div style="display:inline-block"', {
     onclick: function onclick(e) {
       e.preventDefault();
       e.stopPropagation();
-    },
-    oninput: function oninput(e) {
-      props.onUrlChange && props.onUrlChange(e.target.value);
     }
-  })]), n('div', [n(FrameWindow, {
+  }, [
+  // TODO update bug
+  ctx.bn({
+    'url': 'value'
+  }, {
+    autoUpdate: true
+  })(Input, {
+    style: {
+      width: 200
+    }
+  })])]), n('div', [n(FrameWindow, {
     src: props.url
   })])])])]);
 }, {
@@ -1327,343 +1335,6 @@ module.exports = {
     listType,
     truth
 };
-
-
-/***/ }),
-
-/***/ "./node_modules/bolzano/index.js":
-/*!***************************************!*\
-  !*** ./node_modules/bolzano/index.js ***!
-  \***************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-let {
-    isObject, funType, or, isString, isFalsy, likeArray
-} = __webpack_require__(/*! basetype */ "./node_modules/basetype/index.js");
-
-let iterate = __webpack_require__(/*! ./lib/iterate */ "./node_modules/bolzano/lib/iterate.js");
-
-let {
-    map, reduce, find, findIndex, forEach, filter, any, exist, compact
-} = __webpack_require__(/*! ./lib/fp */ "./node_modules/bolzano/lib/fp.js");
-
-let contain = (list, item, fopts) => findIndex(list, item, fopts) !== -1;
-
-let difference = (list1, list2, fopts) => {
-    return reduce(list1, (prev, item) => {
-        if (!contain(list2, item, fopts) &&
-            !contain(prev, item, fopts)) {
-            prev.push(item);
-        }
-        return prev;
-    }, []);
-};
-
-let union = (list1, list2, fopts) => deRepeat(list2, fopts, deRepeat(list1, fopts));
-
-let mergeMap = (map1 = {}, map2 = {}) => reduce(map2, setValueKey, reduce(map1, setValueKey, {}));
-
-let setValueKey = (obj, value, key) => {
-    obj[key] = value;
-    return obj;
-};
-
-let interset = (list1, list2, fopts) => {
-    return reduce(list1, (prev, cur) => {
-        if (contain(list2, cur, fopts)) {
-            prev.push(cur);
-        }
-        return prev;
-    }, []);
-};
-
-let deRepeat = (list, fopts, init = []) => {
-    return reduce(list, (prev, cur) => {
-        if (!contain(prev, cur, fopts)) {
-            prev.push(cur);
-        }
-        return prev;
-    }, init);
-};
-
-/**
- * a.b.c
- */
-let get = funType((sandbox, name = '') => {
-    name = name.trim();
-    let parts = !name ? [] : name.split('.');
-    return reduce(parts, getValue, sandbox, invertLogic);
-}, [
-    isObject,
-    or(isString, isFalsy)
-]);
-
-let getValue = (obj, key) => obj[key];
-
-let invertLogic = v => !v;
-
-let delay = (time) => new Promise((resolve) => {
-    setTimeout(resolve, time);
-});
-
-let flat = (list) => {
-    if (likeArray(list) && !isString(list)) {
-        return reduce(list, (prev, item) => {
-            prev = prev.concat(flat(item));
-            return prev;
-        }, []);
-    } else {
-        return [list];
-    }
-};
-
-module.exports = {
-    flat,
-    contain,
-    difference,
-    union,
-    interset,
-    map,
-    reduce,
-    iterate,
-    find,
-    findIndex,
-    deRepeat,
-    forEach,
-    filter,
-    any,
-    exist,
-    get,
-    delay,
-    mergeMap,
-    compact
-};
-
-
-/***/ }),
-
-/***/ "./node_modules/bolzano/lib/fp.js":
-/*!****************************************!*\
-  !*** ./node_modules/bolzano/lib/fp.js ***!
-  \****************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-let iterate = __webpack_require__(/*! ./iterate */ "./node_modules/bolzano/lib/iterate.js");
-
-let defauls = {
-    eq: (v1, v2) => v1 === v2
-};
-
-let setDefault = (opts, defauls) => {
-    for (let name in defauls) {
-        opts[name] = opts[name] || defauls[name];
-    }
-};
-
-let forEach = (list, handler) => iterate(list, {
-    limit: (rets) => {
-        if (rets === true) return true;
-        return false;
-    },
-    transfer: handler,
-    output: (prev, cur) => cur,
-    def: false
-});
-
-let map = (list, handler, limit) => iterate(list, {
-    transfer: handler,
-    def: [],
-    limit
-});
-
-let reduce = (list, handler, def, limit) => iterate(list, {
-    output: handler,
-    def,
-    limit
-});
-
-let filter = (list, handler, limit) => reduce(list, (prev, cur, index, list) => {
-    handler && handler(cur, index, list) && prev.push(cur);
-    return prev;
-}, [], limit);
-
-let find = (list, item, fopts) => {
-    let index = findIndex(list, item, fopts);
-    if (index === -1) return undefined;
-    return list[index];
-};
-
-let any = (list, handler) => reduce(list, (prev, cur, index, list) => {
-    let curLogic = handler && handler(cur, index, list);
-    return prev && originLogic(curLogic);
-}, true, falsyIt);
-
-let exist = (list, handler) => reduce(list, (prev, cur, index, list) => {
-    let curLogic = handler && handler(cur, index, list);
-    return prev || originLogic(curLogic);
-}, false, originLogic);
-
-let findIndex = (list, item, fopts = {}) => {
-    setDefault(fopts, defauls);
-
-    let {
-        eq
-    } = fopts;
-    let predicate = (v) => eq(item, v);
-    let ret = iterate(list, {
-        transfer: indexTransfer,
-        limit: onlyOne,
-        predicate,
-        def: []
-    });
-    if (!ret.length) return -1;
-    return ret[0];
-};
-
-let compact = (list) => reduce(list, (prev, cur) => {
-    if (cur) prev.push(cur);
-    return prev;
-}, []);
-
-let indexTransfer = (item, index) => index;
-
-let onlyOne = (rets, item, name, domain, count) => count >= 1;
-
-let falsyIt = v => !v;
-
-let originLogic = v => !!v;
-
-module.exports = {
-    map,
-    forEach,
-    reduce,
-    find,
-    findIndex,
-    filter,
-    any,
-    exist,
-    compact
-};
-
-
-/***/ }),
-
-/***/ "./node_modules/bolzano/lib/iterate.js":
-/*!*********************************************!*\
-  !*** ./node_modules/bolzano/lib/iterate.js ***!
-  \*********************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-let {
-    likeArray, isObject, funType, isFunction, isUndefined, or, isNumber, isFalsy, mapType
-} = __webpack_require__(/*! basetype */ "./node_modules/basetype/index.js");
-
-/**
- *
- * preidcate: chose items to iterate
- * limit: when to stop iteration
- * transfer: transfer item
- * output
- */
-let iterate = funType((domain = [], opts = {}) => {
-    let {
-        predicate, transfer, output, limit, def
-    } = opts;
-
-    opts.predicate = predicate || truthy;
-    opts.transfer = transfer || id;
-    opts.output = output || toList;
-    if (limit === undefined) limit = domain && domain.length;
-    limit = opts.limit = stopCondition(limit);
-
-    let rets = def;
-    let count = 0;
-
-    if (likeArray(domain)) {
-        for (let i = 0; i < domain.length; i++) {
-            let itemRet = iterateItem(domain, i, count, rets, opts);
-            rets = itemRet.rets;
-            count = itemRet.count;
-            if (itemRet.stop) return rets;
-        }
-    } else if (isObject(domain)) {
-        for (let name in domain) {
-            let itemRet = iterateItem(domain, name, count, rets, opts);
-            rets = itemRet.rets;
-            count = itemRet.count;
-            if (itemRet.stop) return rets;
-        }
-    }
-
-    return rets;
-}, [
-    or(isObject, isFunction, isFalsy),
-    or(isUndefined, mapType({
-        predicate: or(isFunction, isFalsy),
-        transfer: or(isFunction, isFalsy),
-        output: or(isFunction, isFalsy),
-        limit: or(isUndefined, isNumber, isFunction)
-    }))
-]);
-
-let iterateItem = (domain, name, count, rets, {
-    predicate, transfer, output, limit
-}) => {
-    let item = domain[name];
-    if (limit(rets, item, name, domain, count)) {
-        // stop
-        return {
-            stop: true,
-            count,
-            rets
-        };
-    }
-
-    if (predicate(item)) {
-        rets = output(rets, transfer(item, name, domain, rets), name, domain);
-        count++;
-    }
-    return {
-        stop: false,
-        count,
-        rets
-    };
-};
-
-let stopCondition = (limit) => {
-    if (isUndefined(limit)) {
-        return falsy;
-    } else if (isNumber(limit)) {
-        return (rets, item, name, domain, count) => count >= limit;
-    } else {
-        return limit;
-    }
-};
-
-let toList = (prev, v) => {
-    prev.push(v);
-    return prev;
-};
-
-let truthy = () => true;
-
-let falsy = () => false;
-
-let id = v => v;
-
-module.exports = iterate;
 
 
 /***/ }),
@@ -4734,6 +4405,69 @@ module.exports = lumineView(({
 
 /***/ }),
 
+/***/ "./node_modules/kabanery-lumine/lib/view/input/input.js":
+/*!**************************************************************!*\
+  !*** ./node_modules/kabanery-lumine/lib/view/input/input.js ***!
+  \**************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+const {
+  n
+} = __webpack_require__(/*! kabanery */ "./node_modules/kabanery/index.js");
+
+const lumineView = __webpack_require__(/*! ../../util/lumineView */ "./node_modules/kabanery-lumine/lib/util/lumineView.js");
+
+const {
+  Signal
+} = __webpack_require__(/*! lumine-signal */ "./node_modules/lumine-signal/index.js");
+
+const {
+  styles
+} = __webpack_require__(/*! ../../util/helper */ "./node_modules/kabanery-lumine/lib/util/helper.js");
+
+module.exports = lumineView(({
+  props
+}, {
+  notify,
+  getClassName
+}) => {
+  let attributes = {
+    'class': `${getClassName('input')}`,
+    style: props.style,
+    type: props.type,
+    placeholder: props.placeholder,
+    oninput: (e) => {
+      props.value = e.target.value;
+      notify(Signal('input'));
+    },
+    value: props.value
+  };
+  if (props.id) {
+    attributes.id = props.id;
+  }
+  return n('input', attributes);
+}, {
+  defaultProps: {
+    value: '',
+    type: 'value',
+    placeholder: '',
+    style: (theme) => styles(theme.inputBox, theme.underLineBorder)
+  },
+
+  classTable: (theme) => {
+    return {
+      'input:focus': styles(theme.actions.focus, theme.underLineFocus)
+    };
+  }
+});
+
+
+/***/ }),
+
 /***/ "./node_modules/kabanery-lumine/lib/view/layout/full.js":
 /*!**************************************************************!*\
   !*** ./node_modules/kabanery-lumine/lib/view/layout/full.js ***!
@@ -6845,6 +6579,343 @@ module.exports = __webpack_require__(/*! ./src */ "./node_modules/kabanery/src/i
 
 /***/ }),
 
+/***/ "./node_modules/kabanery/node_modules/bolzano/index.js":
+/*!*************************************************************!*\
+  !*** ./node_modules/kabanery/node_modules/bolzano/index.js ***!
+  \*************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+let {
+    isObject, funType, or, isString, isFalsy, likeArray
+} = __webpack_require__(/*! basetype */ "./node_modules/basetype/index.js");
+
+let iterate = __webpack_require__(/*! ./lib/iterate */ "./node_modules/kabanery/node_modules/bolzano/lib/iterate.js");
+
+let {
+    map, reduce, find, findIndex, forEach, filter, any, exist, compact
+} = __webpack_require__(/*! ./lib/fp */ "./node_modules/kabanery/node_modules/bolzano/lib/fp.js");
+
+let contain = (list, item, fopts) => findIndex(list, item, fopts) !== -1;
+
+let difference = (list1, list2, fopts) => {
+    return reduce(list1, (prev, item) => {
+        if (!contain(list2, item, fopts) &&
+            !contain(prev, item, fopts)) {
+            prev.push(item);
+        }
+        return prev;
+    }, []);
+};
+
+let union = (list1, list2, fopts) => deRepeat(list2, fopts, deRepeat(list1, fopts));
+
+let mergeMap = (map1 = {}, map2 = {}) => reduce(map2, setValueKey, reduce(map1, setValueKey, {}));
+
+let setValueKey = (obj, value, key) => {
+    obj[key] = value;
+    return obj;
+};
+
+let interset = (list1, list2, fopts) => {
+    return reduce(list1, (prev, cur) => {
+        if (contain(list2, cur, fopts)) {
+            prev.push(cur);
+        }
+        return prev;
+    }, []);
+};
+
+let deRepeat = (list, fopts, init = []) => {
+    return reduce(list, (prev, cur) => {
+        if (!contain(prev, cur, fopts)) {
+            prev.push(cur);
+        }
+        return prev;
+    }, init);
+};
+
+/**
+ * a.b.c
+ */
+let get = funType((sandbox, name = '') => {
+    name = name.trim();
+    let parts = !name ? [] : name.split('.');
+    return reduce(parts, getValue, sandbox, invertLogic);
+}, [
+    isObject,
+    or(isString, isFalsy)
+]);
+
+let getValue = (obj, key) => obj[key];
+
+let invertLogic = v => !v;
+
+let delay = (time) => new Promise((resolve) => {
+    setTimeout(resolve, time);
+});
+
+let flat = (list) => {
+    if (likeArray(list) && !isString(list)) {
+        return reduce(list, (prev, item) => {
+            prev = prev.concat(flat(item));
+            return prev;
+        }, []);
+    } else {
+        return [list];
+    }
+};
+
+module.exports = {
+    flat,
+    contain,
+    difference,
+    union,
+    interset,
+    map,
+    reduce,
+    iterate,
+    find,
+    findIndex,
+    deRepeat,
+    forEach,
+    filter,
+    any,
+    exist,
+    get,
+    delay,
+    mergeMap,
+    compact
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/kabanery/node_modules/bolzano/lib/fp.js":
+/*!**************************************************************!*\
+  !*** ./node_modules/kabanery/node_modules/bolzano/lib/fp.js ***!
+  \**************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+let iterate = __webpack_require__(/*! ./iterate */ "./node_modules/kabanery/node_modules/bolzano/lib/iterate.js");
+
+let defauls = {
+    eq: (v1, v2) => v1 === v2
+};
+
+let setDefault = (opts, defauls) => {
+    for (let name in defauls) {
+        opts[name] = opts[name] || defauls[name];
+    }
+};
+
+let forEach = (list, handler) => iterate(list, {
+    limit: (rets) => {
+        if (rets === true) return true;
+        return false;
+    },
+    transfer: handler,
+    output: (prev, cur) => cur,
+    def: false
+});
+
+let map = (list, handler, limit) => iterate(list, {
+    transfer: handler,
+    def: [],
+    limit
+});
+
+let reduce = (list, handler, def, limit) => iterate(list, {
+    output: handler,
+    def,
+    limit
+});
+
+let filter = (list, handler, limit) => reduce(list, (prev, cur, index, list) => {
+    handler && handler(cur, index, list) && prev.push(cur);
+    return prev;
+}, [], limit);
+
+let find = (list, item, fopts) => {
+    let index = findIndex(list, item, fopts);
+    if (index === -1) return undefined;
+    return list[index];
+};
+
+let any = (list, handler) => reduce(list, (prev, cur, index, list) => {
+    let curLogic = handler && handler(cur, index, list);
+    return prev && originLogic(curLogic);
+}, true, falsyIt);
+
+let exist = (list, handler) => reduce(list, (prev, cur, index, list) => {
+    let curLogic = handler && handler(cur, index, list);
+    return prev || originLogic(curLogic);
+}, false, originLogic);
+
+let findIndex = (list, item, fopts = {}) => {
+    setDefault(fopts, defauls);
+
+    let {
+        eq
+    } = fopts;
+    let predicate = (v) => eq(item, v);
+    let ret = iterate(list, {
+        transfer: indexTransfer,
+        limit: onlyOne,
+        predicate,
+        def: []
+    });
+    if (!ret.length) return -1;
+    return ret[0];
+};
+
+let compact = (list) => reduce(list, (prev, cur) => {
+    if (cur) prev.push(cur);
+    return prev;
+}, []);
+
+let indexTransfer = (item, index) => index;
+
+let onlyOne = (rets, item, name, domain, count) => count >= 1;
+
+let falsyIt = v => !v;
+
+let originLogic = v => !!v;
+
+module.exports = {
+    map,
+    forEach,
+    reduce,
+    find,
+    findIndex,
+    filter,
+    any,
+    exist,
+    compact
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/kabanery/node_modules/bolzano/lib/iterate.js":
+/*!*******************************************************************!*\
+  !*** ./node_modules/kabanery/node_modules/bolzano/lib/iterate.js ***!
+  \*******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+let {
+    likeArray, isObject, funType, isFunction, isUndefined, or, isNumber, isFalsy, mapType
+} = __webpack_require__(/*! basetype */ "./node_modules/basetype/index.js");
+
+/**
+ *
+ * preidcate: chose items to iterate
+ * limit: when to stop iteration
+ * transfer: transfer item
+ * output
+ */
+let iterate = funType((domain = [], opts = {}) => {
+    let {
+        predicate, transfer, output, limit, def
+    } = opts;
+
+    opts.predicate = predicate || truthy;
+    opts.transfer = transfer || id;
+    opts.output = output || toList;
+    if (limit === undefined) limit = domain && domain.length;
+    limit = opts.limit = stopCondition(limit);
+
+    let rets = def;
+    let count = 0;
+
+    if (likeArray(domain)) {
+        for (let i = 0; i < domain.length; i++) {
+            let itemRet = iterateItem(domain, i, count, rets, opts);
+            rets = itemRet.rets;
+            count = itemRet.count;
+            if (itemRet.stop) return rets;
+        }
+    } else if (isObject(domain)) {
+        for (let name in domain) {
+            let itemRet = iterateItem(domain, name, count, rets, opts);
+            rets = itemRet.rets;
+            count = itemRet.count;
+            if (itemRet.stop) return rets;
+        }
+    }
+
+    return rets;
+}, [
+    or(isObject, isFunction, isFalsy),
+    or(isUndefined, mapType({
+        predicate: or(isFunction, isFalsy),
+        transfer: or(isFunction, isFalsy),
+        output: or(isFunction, isFalsy),
+        limit: or(isUndefined, isNumber, isFunction)
+    }))
+]);
+
+let iterateItem = (domain, name, count, rets, {
+    predicate, transfer, output, limit
+}) => {
+    let item = domain[name];
+    if (limit(rets, item, name, domain, count)) {
+        // stop
+        return {
+            stop: true,
+            count,
+            rets
+        };
+    }
+
+    if (predicate(item)) {
+        rets = output(rets, transfer(item, name, domain, rets), name, domain);
+        count++;
+    }
+    return {
+        stop: false,
+        count,
+        rets
+    };
+};
+
+let stopCondition = (limit) => {
+    if (isUndefined(limit)) {
+        return falsy;
+    } else if (isNumber(limit)) {
+        return (rets, item, name, domain, count) => count >= limit;
+    } else {
+        return limit;
+    }
+};
+
+let toList = (prev, v) => {
+    prev.push(v);
+    return prev;
+};
+
+let truthy = () => true;
+
+let falsy = () => false;
+
+let id = v => v;
+
+module.exports = iterate;
+
+
+/***/ }),
+
 /***/ "./node_modules/kabanery/src/const/index.js":
 /*!**************************************************!*\
   !*** ./node_modules/kabanery/src/const/index.js ***!
@@ -6880,7 +6951,7 @@ module.exports = {
 
 let {
   contain
-} = __webpack_require__(/*! bolzano */ "./node_modules/bolzano/index.js");
+} = __webpack_require__(/*! bolzano */ "./node_modules/kabanery/node_modules/bolzano/index.js");
 
 let {
   eventMapHook,
@@ -7348,7 +7419,7 @@ let parseStyle = __webpack_require__(/*! ./parseStyle */ "./node_modules/kabaner
 
 let {
   mergeMap
-} = __webpack_require__(/*! bolzano */ "./node_modules/bolzano/index.js");
+} = __webpack_require__(/*! bolzano */ "./node_modules/kabanery/node_modules/bolzano/index.js");
 
 const ITEM_REG = /([\w-]+)\s*=\s*(([\w-]+)|('.*?')|(".*?"))/;
 
@@ -7565,7 +7636,7 @@ const {
 const {
   flat,
   forEach
-} = __webpack_require__(/*! bolzano */ "./node_modules/bolzano/index.js");
+} = __webpack_require__(/*! bolzano */ "./node_modules/kabanery/node_modules/bolzano/index.js");
 
 const toDomNode = __webpack_require__(/*! ./toDomNode */ "./node_modules/kabanery/src/resolver/toDomNode.js");
 
@@ -7635,7 +7706,7 @@ const {
 } = __webpack_require__(/*! ../event */ "./node_modules/kabanery/src/event/index.js");
 const {
   map
-} = __webpack_require__(/*! bolzano */ "./node_modules/bolzano/index.js");
+} = __webpack_require__(/*! bolzano */ "./node_modules/kabanery/node_modules/bolzano/index.js");
 const {
   isKabaneryNode,
   isKabaneryRenderNode
@@ -8041,7 +8112,7 @@ const diffNode = (node, newKNode, oldKNode) => {
   if (!isNode(node)) return node;
 
   const newKabNode = isViewNode(newKNode) ? newKNode.ctx.getKabaneryNode() : newKNode;
-  const oldKabNode = isViewNode(oldKNode) ? oldKNode.ctx.getKabaneryNode() : oldKNode;
+  const oldKabNode = isViewNode(oldKNode) ? oldKNode.ctx.getKNode() : oldKNode;
 
   if (isKabaneryNode(newKabNode) && isKabaneryNode(oldKabNode)) {
     if (getTagName(oldKabNode) !== getTagName(newKabNode)) {
@@ -8171,7 +8242,7 @@ const getTextAreaTextContent = (node) => {
   if (isNode(node)) {
     return node.textContent;
   } else {
-    return node.children[0];
+    return (node.childNodes.length && node.childNodes[0]) || '';
   }
 };
 
@@ -9328,6 +9399,343 @@ module.exports = __webpack_require__(/*! ./src */ "./node_modules/stream-token-p
 
 /***/ }),
 
+/***/ "./node_modules/stream-token-parser/node_modules/bolzano/index.js":
+/*!************************************************************************!*\
+  !*** ./node_modules/stream-token-parser/node_modules/bolzano/index.js ***!
+  \************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+let {
+    isObject, funType, or, isString, isFalsy, likeArray
+} = __webpack_require__(/*! basetype */ "./node_modules/basetype/index.js");
+
+let iterate = __webpack_require__(/*! ./lib/iterate */ "./node_modules/stream-token-parser/node_modules/bolzano/lib/iterate.js");
+
+let {
+    map, reduce, find, findIndex, forEach, filter, any, exist, compact
+} = __webpack_require__(/*! ./lib/fp */ "./node_modules/stream-token-parser/node_modules/bolzano/lib/fp.js");
+
+let contain = (list, item, fopts) => findIndex(list, item, fopts) !== -1;
+
+let difference = (list1, list2, fopts) => {
+    return reduce(list1, (prev, item) => {
+        if (!contain(list2, item, fopts) &&
+            !contain(prev, item, fopts)) {
+            prev.push(item);
+        }
+        return prev;
+    }, []);
+};
+
+let union = (list1, list2, fopts) => deRepeat(list2, fopts, deRepeat(list1, fopts));
+
+let mergeMap = (map1 = {}, map2 = {}) => reduce(map2, setValueKey, reduce(map1, setValueKey, {}));
+
+let setValueKey = (obj, value, key) => {
+    obj[key] = value;
+    return obj;
+};
+
+let interset = (list1, list2, fopts) => {
+    return reduce(list1, (prev, cur) => {
+        if (contain(list2, cur, fopts)) {
+            prev.push(cur);
+        }
+        return prev;
+    }, []);
+};
+
+let deRepeat = (list, fopts, init = []) => {
+    return reduce(list, (prev, cur) => {
+        if (!contain(prev, cur, fopts)) {
+            prev.push(cur);
+        }
+        return prev;
+    }, init);
+};
+
+/**
+ * a.b.c
+ */
+let get = funType((sandbox, name = '') => {
+    name = name.trim();
+    let parts = !name ? [] : name.split('.');
+    return reduce(parts, getValue, sandbox, invertLogic);
+}, [
+    isObject,
+    or(isString, isFalsy)
+]);
+
+let getValue = (obj, key) => obj[key];
+
+let invertLogic = v => !v;
+
+let delay = (time) => new Promise((resolve) => {
+    setTimeout(resolve, time);
+});
+
+let flat = (list) => {
+    if (likeArray(list) && !isString(list)) {
+        return reduce(list, (prev, item) => {
+            prev = prev.concat(flat(item));
+            return prev;
+        }, []);
+    } else {
+        return [list];
+    }
+};
+
+module.exports = {
+    flat,
+    contain,
+    difference,
+    union,
+    interset,
+    map,
+    reduce,
+    iterate,
+    find,
+    findIndex,
+    deRepeat,
+    forEach,
+    filter,
+    any,
+    exist,
+    get,
+    delay,
+    mergeMap,
+    compact
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/stream-token-parser/node_modules/bolzano/lib/fp.js":
+/*!*************************************************************************!*\
+  !*** ./node_modules/stream-token-parser/node_modules/bolzano/lib/fp.js ***!
+  \*************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+let iterate = __webpack_require__(/*! ./iterate */ "./node_modules/stream-token-parser/node_modules/bolzano/lib/iterate.js");
+
+let defauls = {
+    eq: (v1, v2) => v1 === v2
+};
+
+let setDefault = (opts, defauls) => {
+    for (let name in defauls) {
+        opts[name] = opts[name] || defauls[name];
+    }
+};
+
+let forEach = (list, handler) => iterate(list, {
+    limit: (rets) => {
+        if (rets === true) return true;
+        return false;
+    },
+    transfer: handler,
+    output: (prev, cur) => cur,
+    def: false
+});
+
+let map = (list, handler, limit) => iterate(list, {
+    transfer: handler,
+    def: [],
+    limit
+});
+
+let reduce = (list, handler, def, limit) => iterate(list, {
+    output: handler,
+    def,
+    limit
+});
+
+let filter = (list, handler, limit) => reduce(list, (prev, cur, index, list) => {
+    handler && handler(cur, index, list) && prev.push(cur);
+    return prev;
+}, [], limit);
+
+let find = (list, item, fopts) => {
+    let index = findIndex(list, item, fopts);
+    if (index === -1) return undefined;
+    return list[index];
+};
+
+let any = (list, handler) => reduce(list, (prev, cur, index, list) => {
+    let curLogic = handler && handler(cur, index, list);
+    return prev && originLogic(curLogic);
+}, true, falsyIt);
+
+let exist = (list, handler) => reduce(list, (prev, cur, index, list) => {
+    let curLogic = handler && handler(cur, index, list);
+    return prev || originLogic(curLogic);
+}, false, originLogic);
+
+let findIndex = (list, item, fopts = {}) => {
+    setDefault(fopts, defauls);
+
+    let {
+        eq
+    } = fopts;
+    let predicate = (v) => eq(item, v);
+    let ret = iterate(list, {
+        transfer: indexTransfer,
+        limit: onlyOne,
+        predicate,
+        def: []
+    });
+    if (!ret.length) return -1;
+    return ret[0];
+};
+
+let compact = (list) => reduce(list, (prev, cur) => {
+    if (cur) prev.push(cur);
+    return prev;
+}, []);
+
+let indexTransfer = (item, index) => index;
+
+let onlyOne = (rets, item, name, domain, count) => count >= 1;
+
+let falsyIt = v => !v;
+
+let originLogic = v => !!v;
+
+module.exports = {
+    map,
+    forEach,
+    reduce,
+    find,
+    findIndex,
+    filter,
+    any,
+    exist,
+    compact
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/stream-token-parser/node_modules/bolzano/lib/iterate.js":
+/*!******************************************************************************!*\
+  !*** ./node_modules/stream-token-parser/node_modules/bolzano/lib/iterate.js ***!
+  \******************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+let {
+    likeArray, isObject, funType, isFunction, isUndefined, or, isNumber, isFalsy, mapType
+} = __webpack_require__(/*! basetype */ "./node_modules/basetype/index.js");
+
+/**
+ *
+ * preidcate: chose items to iterate
+ * limit: when to stop iteration
+ * transfer: transfer item
+ * output
+ */
+let iterate = funType((domain = [], opts = {}) => {
+    let {
+        predicate, transfer, output, limit, def
+    } = opts;
+
+    opts.predicate = predicate || truthy;
+    opts.transfer = transfer || id;
+    opts.output = output || toList;
+    if (limit === undefined) limit = domain && domain.length;
+    limit = opts.limit = stopCondition(limit);
+
+    let rets = def;
+    let count = 0;
+
+    if (likeArray(domain)) {
+        for (let i = 0; i < domain.length; i++) {
+            let itemRet = iterateItem(domain, i, count, rets, opts);
+            rets = itemRet.rets;
+            count = itemRet.count;
+            if (itemRet.stop) return rets;
+        }
+    } else if (isObject(domain)) {
+        for (let name in domain) {
+            let itemRet = iterateItem(domain, name, count, rets, opts);
+            rets = itemRet.rets;
+            count = itemRet.count;
+            if (itemRet.stop) return rets;
+        }
+    }
+
+    return rets;
+}, [
+    or(isObject, isFunction, isFalsy),
+    or(isUndefined, mapType({
+        predicate: or(isFunction, isFalsy),
+        transfer: or(isFunction, isFalsy),
+        output: or(isFunction, isFalsy),
+        limit: or(isUndefined, isNumber, isFunction)
+    }))
+]);
+
+let iterateItem = (domain, name, count, rets, {
+    predicate, transfer, output, limit
+}) => {
+    let item = domain[name];
+    if (limit(rets, item, name, domain, count)) {
+        // stop
+        return {
+            stop: true,
+            count,
+            rets
+        };
+    }
+
+    if (predicate(item)) {
+        rets = output(rets, transfer(item, name, domain, rets), name, domain);
+        count++;
+    }
+    return {
+        stop: false,
+        count,
+        rets
+    };
+};
+
+let stopCondition = (limit) => {
+    if (isUndefined(limit)) {
+        return falsy;
+    } else if (isNumber(limit)) {
+        return (rets, item, name, domain, count) => count >= limit;
+    } else {
+        return limit;
+    }
+};
+
+let toList = (prev, v) => {
+    prev.push(v);
+    return prev;
+};
+
+let truthy = () => true;
+
+let falsy = () => false;
+
+let id = v => v;
+
+module.exports = iterate;
+
+
+/***/ }),
+
 /***/ "./node_modules/stream-token-parser/src/buildFSM.js":
 /*!**********************************************************!*\
   !*** ./node_modules/stream-token-parser/src/buildFSM.js ***!
@@ -9491,7 +9899,7 @@ let buildFSM = __webpack_require__(/*! ./buildFSM */ "./node_modules/stream-toke
 
 let {
     map
-} = __webpack_require__(/*! bolzano */ "./node_modules/bolzano/index.js");
+} = __webpack_require__(/*! bolzano */ "./node_modules/stream-token-parser/node_modules/bolzano/index.js");
 
 let {
     getMatch
