@@ -64,7 +64,7 @@
 /******/
 /******/ 	var hotApplyOnUpdate = true;
 /******/ 	// eslint-disable-next-line no-unused-vars
-/******/ 	var hotCurrentHash = "3ea919b75c37593fddf8";
+/******/ 	var hotCurrentHash = "c1d2276c6d88152fe0db";
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule;
@@ -996,6 +996,9 @@ module.exports = SimplePager(lumineView(function (_ref, ctx) {
     {
       name: 'js console',
       url: 'https://jsconsole.com/'
+    }, {
+      name: 'skype',
+      url: 'https://web.skype.com/en/'
     }]
   }
 }));
@@ -1023,8 +1026,7 @@ var Input = __webpack_require__(/*! kabanery-lumine/lib/view/input/input */ "./n
 module.exports = lumineView(function (_ref, ctx) {
   var props = _ref.props;
 
-  console.log(props);
-  return n('div', {}, [n('h3', props.name), n('div', {
+  return n('div', {}, [n('strong', props.name), n('div', {
     style: {
       padding: '0 8 0 8'
     }
