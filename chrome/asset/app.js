@@ -64,7 +64,7 @@
 /******/
 /******/ 	var hotApplyOnUpdate = true;
 /******/ 	// eslint-disable-next-line no-unused-vars
-/******/ 	var hotCurrentHash = "c1d2276c6d88152fe0db";
+/******/ 	var hotCurrentHash = "fcf00bab7e95e576559c";
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule;
@@ -982,10 +982,10 @@ module.exports = SimplePager(lumineView(function (_ref, ctx) {
       name: 'translator',
       url: 'https://translate.google.com/'
     }, {
-      name: "scala api",
+      name: 'scala api',
       url: 'https://www.scala-lang.org/files/archive/api/current/'
     }, {
-      name: "nodejs doc",
+      name: 'nodejs doc',
       url: 'https://nodejs.org/dist/latest-v10.x/docs/api/'
     }, {
       name: 'MDN',
@@ -999,6 +999,9 @@ module.exports = SimplePager(lumineView(function (_ref, ctx) {
     }, {
       name: 'skype',
       url: 'https://web.skype.com/en/'
+    }, {
+      name: 'leetcode',
+      url: 'https://leetcode.com/problemset/all/'
     }]
   }
 }));
