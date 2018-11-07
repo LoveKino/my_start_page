@@ -25,7 +25,7 @@
   "homepage": "https://github.com/LoveKino/my_start_page#readme",
   "dependencies": {
     "kabanery": "^0.2.24",
-    "kabanery-glare": "0.0.3"
+    "kabanery-glare": "0.0.4"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
