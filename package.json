@@ -4,9 +4,9 @@
   "description": "my start page",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack --watch",
+    "dev": "DEV=1 webpack --watch",
     "test": "mocha test/**/*.js",
-    "deploy-chrome": "DEV=1 webpack && rm -rf ./chrome/asset && cp -r ./asset ./chrome/asset"
+    "deploy-chrome": "webpack && rm -rf ./chrome/asset && cp -r ./asset ./chrome/asset"
   },
   "repository": {
     "type": "git",
