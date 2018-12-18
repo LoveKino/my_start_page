@@ -64,7 +64,7 @@
 /******/
 /******/ 	var hotApplyOnUpdate = true;
 /******/ 	// eslint-disable-next-line no-unused-vars
-/******/ 	var hotCurrentHash = "0da1b51d50a4d2736e0d";
+/******/ 	var hotCurrentHash = "8b8234b58b641cf68775";
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule;
@@ -907,7 +907,7 @@ var _require3 = __webpack_require__(/*! kabanery */ "./node_modules/kabanery/ind
 var _require4 = __webpack_require__(/*! ./consoleParser */ "./lib/consoleParser.js"),
     parseConsoleText = _require4.parseConsoleText;
 
-var sandbox = __webpack_require__(/*! ./sandbox */ "./lib/sandbox.js")();
+var sandbox = __webpack_require__(/*! ./sandbox */ "./lib/sandbox/index.js")();
 
 var Page = glareView(function (_ref, ctx) {
   var props = _ref.props,
@@ -1052,17 +1052,17 @@ mount(pageInst, document.body);
 
 /***/ }),
 
-/***/ "./lib/sandbox.js":
-/*!************************!*\
-  !*** ./lib/sandbox.js ***!
-  \************************/
+/***/ "./lib/sandbox/index.js":
+/*!******************************!*\
+  !*** ./lib/sandbox/index.js ***!
+  \******************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var Frame = __webpack_require__(/*! ./view/Frame */ "./lib/view/Frame.js");
+var Frame = __webpack_require__(/*! ../view/Frame */ "./lib/view/Frame.js");
 
 var toolsites = [{
   name: 'youtube',
